@@ -18,7 +18,7 @@ class _ClockViewState extends State<ClockView> {
 
   @override
   void initState() {
-    this.timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {});
     });
     super.initState();
@@ -26,7 +26,7 @@ class _ClockViewState extends State<ClockView> {
 
   @override
   void dispose() {
-    this.timer.cancel();
+    timer.cancel();
     super.dispose();
   }
 
@@ -34,7 +34,7 @@ class _ClockViewState extends State<ClockView> {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.topCenter,
-      child: Container(
+      child: SizedBox(
         width: widget.size,
         height: widget.size,
         child: Transform.rotate(

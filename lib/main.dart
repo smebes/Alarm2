@@ -50,7 +50,7 @@ void main() async {
       ),
       home: ChangeNotifierProvider<MenuInfo>(
         create: (context) => MenuInfo(MenuType.clock),
-        child: HomePage(),
+        child: const HomePage(),
       ),
     ),
   );

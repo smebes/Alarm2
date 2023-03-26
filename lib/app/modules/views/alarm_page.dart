@@ -10,6 +10,8 @@ import '../../data/models/alarm_info.dart';
 import '../../data/theme_data.dart';
 
 class AlarmPage extends StatefulWidget {
+  const AlarmPage({super.key});
+
   @override
   _AlarmPageState createState() => _AlarmPageState();
 }
@@ -138,7 +140,7 @@ class _AlarmPageState extends State<AlarmPage> {
                           color: CustomColors.clockOutline,
                           borderType: BorderType.RRect,
                           radius: const Radius.circular(24),
-                          dashPattern: [5, 4],
+                          dashPattern: const [5, 4],
                           child: Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
@@ -306,7 +308,7 @@ class _AlarmPageState extends State<AlarmPage> {
     }
   }
 
-  void onSaveAlarm(bool _isRepeating) {
+  void onSaveAlarm(bool isRepeating) {
     DateTime? scheduleAlarmDateTime;
     if (_alarmTime!.isAfter(DateTime.now())) {
       scheduleAlarmDateTime = _alarmTime;
@@ -321,7 +323,7 @@ class _AlarmPageState extends State<AlarmPage> {
     );
     _alarmHelper.insertAlarm(alarmInfo);
     if (scheduleAlarmDateTime != null) {
-      scheduleAlarm(scheduleAlarmDateTime, alarmInfo, isRepeating: _isRepeating);
+      scheduleAlarm(scheduleAlarmDateTime, alarmInfo, isRepeating: isRepeating);
     }
     Navigator.pop(context);
     loadAlarms();

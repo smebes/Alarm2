@@ -9,6 +9,8 @@ import 'alarm_page.dart';
 import 'clock_page.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -32,9 +34,9 @@ class _HomePageState extends State<HomePage> {
             child: Consumer<MenuInfo>(
               builder: (BuildContext context, MenuInfo value, Widget? child) {
                 if (value.menuType == MenuType.clock) {
-                  return ClockPage();
+                  return const ClockPage();
                 } else if (value.menuType == MenuType.alarm) {
-                  return AlarmPage();
+                  return const AlarmPage();
                 } else {
                   return RichText(
                     text: TextSpan(
